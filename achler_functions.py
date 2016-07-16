@@ -33,3 +33,9 @@ def learn_property(instance_list, exp, exp_labels):
                     exp.put(i * exp.shape[1] + difference_index, difference.item((0, difference_index)))
                 break   
     return exp, exp_labels
+
+def softmax(x):
+    # output vector which sums to 1 with elements in range 0 ... 1
+    e_x = np.exp(x - np.max(x))
+    out = e_x / e_x.sum()
+    return out
